@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import UserInputPage from './Components/UserInputPage/UserInputPage';
+import InputDisplayPage from './Components/InputDisplayPage/InputDisplayPage';
+import React, {useState} from 'react';
 
 function App() {
+  const [questionType, setQuestionType] = useState('');
+  const [singleQuestion, setSingleQuestion] = useState('');
+  const [multipleQuestions, setMultipleQuestions] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    {/* <Router>
+      <Routes> */}
+      
+        <UserInputPage questionType={questionType} setQuestionType={setQuestionType} setSingleQuestion={setSingleQuestion} setMultipleQuestions = {setMultipleQuestions} />
+        <InputDisplayPage path="/display" questionType={questionType} singleQuestion={singleQuestion} multipleQuestions={multipleQuestions} />
+        {/* <Route path="/display" element = {<InputDisplayPage/>}/> */}
+      {/* </Routes>
+        
+      
+    </Router> */}
+    
+    </>
+    
   );
 }
 
